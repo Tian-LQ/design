@@ -17,7 +17,7 @@
 
 **整体架构设计图：**
 
-![](C:\Users\田磊泉\Desktop\design\历史记录系统设计\历史记录架构设计.png)
+![RUNOOB 图标](https://github.com/Tian-LQ/design/blob/main/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1.png?raw=true)
 
 - history表示服务的接入层，一般处理业务相关的逻辑
 - history-service是历史记录服务的主要服务层，处理核心逻辑
@@ -25,7 +25,7 @@
 
 **写场景下的设计时序图：**
 
-![](C:\Users\田磊泉\Desktop\design\历史记录系统设计\历史记录写场景.png)
+![RUNOOB 图标](https://github.com/Tian-LQ/design/blob/main/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E5%86%99%E5%9C%BA%E6%99%AF.png?raw=true)
 
 **以下为写历史记录数据时的处理逻辑：**
 
@@ -41,7 +41,7 @@
 
 **读场景下的设计时序图：**
 
-![](C:\Users\田磊泉\Desktop\design\历史记录系统设计\历史记录读场景.png)
+![RUNOOB 图标](https://github.com/Tian-LQ/design/blob/main/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E8%AF%BB%E5%9C%BA%E6%99%AF.png?raw=true)
 
 **以下为读历史记录数据时的处理逻辑：**
 
@@ -52,3 +52,5 @@
 - 获取用户在当前作品下的历史观看进度记录
   - [x] 查找redis获取，如果存在则直接返回
   - [x] 如果redis当中没有，则直接返回没有，并不会去回查数据库，因为这类读场景触发非常高频，每当用户点开一个视频的时候，便会触发改场景，而绝大多数用户点开的视频都是新的视频，因此这样的视频是不存在历史数据的，而用户近期内观看的视频记录信息，又都保存在redis当中，因此无需做hbase的返查
+
+[整个历史记录系统设计的核心在于write back的缓存模式使用，以及batch打包数据，减少IO次数的效果](https://github.com/Tian-LQ/design/blob/main/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E8%AF%BB%E5%9C%BA%E6%99%AF.png?raw=true)
