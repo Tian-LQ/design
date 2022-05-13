@@ -17,14 +17,14 @@
 
 **余额充值时序图：**
 
-![](C:\Users\田磊泉\Desktop\design\IOS支付设计\IOS余额充值时序图.png)
+![RUNOOB 图标](https://github.com/Tian-LQ/design/blob/main/IOS%E6%94%AF%E4%BB%98%E8%AE%BE%E8%AE%A1/IOS%E4%BD%99%E9%A2%9D%E5%85%85%E5%80%BC%E6%97%B6%E5%BA%8F%E5%9B%BE.png?raw=true)
 
 - 这里所说的商品列表是指的Apple内指定的固定充值数额的产品(6元、30元、128元、328元、648元)
 - 首先前端调用ios内充值接口，充值完成后获得收据，然后调用后端的余额充值接口，后端通过调用appStore服务器提供方法，验证前端提供的收据信息是否真实有效(价格、订单号等)，通过该收据来做幂等，验证通过之后，便调用资产asset服务当中余额充值的接口，为当前用户增加ios余额
 
 **IOS订单时序图：**
 
-![](C:\Users\田磊泉\Desktop\design\IOS支付设计\IOS订单时序图.png)
+![RUNOOB 图标](https://github.com/Tian-LQ/design/blob/main/IOS%E6%94%AF%E4%BB%98%E8%AE%BE%E8%AE%A1/IOS%E8%AE%A2%E5%8D%95%E6%97%B6%E5%BA%8F%E5%9B%BE.png?raw=true)
 
 - 整个IOS订单支付流程分为两个主流程
 - 订单创建流程
